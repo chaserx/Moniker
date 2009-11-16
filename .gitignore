@@ -1,0 +1,9 @@
+.DS_Store
+log/*
+log/*.log
+tmp/**/*
+config/database.yml
+db/*.sqlite3
+config/config.yml
+config/passwords_config.yml
+config/app_config.yml
