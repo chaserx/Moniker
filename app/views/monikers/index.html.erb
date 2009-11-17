@@ -1,0 +1,21 @@
+<% title "Monikers" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Rank</th>
+    <th>Gender</th>
+  </tr>
+  <% for moniker in @monikers %>
+    <tr>
+      <td><%=h moniker.name %></td>
+      <td><%=h moniker.rank %></td>
+      <td><%=h moniker.gender %></td>
+      <td><%= link_to "Show", moniker %></td>
+      <td><%= link_to "Edit", edit_moniker_path(moniker) %></td>
+      <td><%= link_to "Destroy", moniker, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Moniker", new_moniker_path %></p>

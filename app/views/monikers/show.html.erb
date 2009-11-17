@@ -1,0 +1,21 @@
+<% title "Moniker" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @moniker.name %>
+</p>
+<p>
+  <strong>Rank:</strong>
+  <%=h @moniker.rank %>
+</p>
+<p>
+  <strong>Gender:</strong>
+  <%=h @moniker.gender %>
+</p>
+
+
+<p>
+  <%= link_to "Edit", edit_moniker_path(@moniker) %> |
+  <%= link_to "Destroy", @moniker, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", monikers_path %>
+</p>
