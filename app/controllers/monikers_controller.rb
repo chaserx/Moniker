@@ -1,6 +1,6 @@
 class MonikersController < ApplicationController
   def index
-    @monikers = Moniker.all
+    @monikers = Moniker.find(:all, :conditions => { :rank => 1..10 }, :order => :rank)
   end
   
   def show
