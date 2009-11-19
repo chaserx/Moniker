@@ -3,9 +3,9 @@ class NamesController < ApplicationController
     #@names = Name.all
     if params[:namelist]
       inputnames = params[:namelist]
-      @names = inputnames.to_s.split.each{|e|e.capitalize}
+      @names = inputnames.to_s.split.each{|e|e.capitalize!}
     else
-      @names = "No Names"
+      @names = "No Results"
     end
   end
 end

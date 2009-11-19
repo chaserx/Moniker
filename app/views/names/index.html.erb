@@ -3,8 +3,9 @@
 
 
 <% form_tag(names_path, {:method => 'get', :class => "form"}) do %>
-  <p><%= text_area_tag "namelist", params[:namelist] %></p>
-  <p><%= submit_tag "Submit", :disable_with => 'Submiting...' %></p>
+  <p><%= text_area_tag "namelist", params[:namelist], {:size => "30x10"} %></p>
+  <p><%= submit_tag "Submit", :disable_with => 'Submiting...' %> or <%= link_to "reset", names_path  %></p>
+  
 <% end -%>
 
 <div id="output">
@@ -13,6 +14,6 @@
       <%= name %><br />
     <% end %>
   <% else %>
-    <%= @names %>
+    <%= render :text => "No Results" %>
   <% end %>  
 </div>
