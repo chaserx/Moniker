@@ -3,8 +3,16 @@
 
 
 <% form_tag(names_path, {:method => 'get', :class => "form"}) do %>
-  <%= text_area_tag "nameslist", params[:nameslist] %>
-  <%= submit_tag "Submit", :disable_with => 'Submiting...' %>
+  <p><%= text_area_tag "namelist", params[:namelist] %></p>
+  <p><%= submit_tag "Submit", :disable_with => 'Submiting...' %></p>
 <% end -%>
 
-<%= render :partial => "names" %>
+<div id="output">
+  <% if !@names.empty? %>
+    <% for name in @names %>
+      <%= name %><br />
+    <% end %>
+  <% else %>
+    <%= @names %>
+  <% end %>  
+</div>
