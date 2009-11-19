@@ -1,5 +1,10 @@
 <% title "Names" %>
 
-<% form_tag(, {:method => "get", :class => "form"}) do %>
-  
+
+
+<% form_tag(names_path, {:method => 'get', :class => "form"}) do %>
+  <%= text_area_tag "nameslist", params[:nameslist] %>
+  <%= submit_tag "Submit", :disable_with => 'Submiting...' %>
 <% end -%>
+
+<% render :partial => "names" %>
