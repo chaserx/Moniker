@@ -23,6 +23,7 @@
 </div>
 <hr />
 <div id="results">
+  <h3>Name Popularity in 2008 (Top 1000 Names)</h3>
   <% if !@results.empty? %>
     <% for result in @results %>
       <%= h result.name %> {rank: <%= h result.rank %>}<br />
