@@ -6,9 +6,12 @@ class NamesController < ApplicationController
       @names = inputnames.to_s.split(/\r\n/).each{|e|e.gsub!(/\b\w/){$&.upcase}}
       #@names = shuffle_names(@names)
       
+      @results = Moniker.name_equals(@names)
       @names = generate_name_combinations(@names)
+
     else
       @names = "No Results"
+      @results = []
     end
   end
   

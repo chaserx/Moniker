@@ -21,3 +21,13 @@
     <%= render :text => "No Results" %>
   <% end %>
 </div>
+<hr />
+<div id="results">
+  <% if !@results.empty? %>
+    <% for result in @results %>
+      <%= h result.name %> {rank: <%= h result.rank %>}<br />
+    <% end %>
+  <% else %>
+    <%= render :text => "No Results" %>
+  <% end %>
+</div>
