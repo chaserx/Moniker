@@ -12,22 +12,7 @@ class NamesController < ApplicationController
     end
   end
   
-  def shuffle_names(names)
-    #return names.sort_by { rand }
-    names_output_array = Array.new
-    local_names_array = names.dup
-    
-    local_names_array.each_with_index {|e, i|
-      if e != local_names_array.last
-          unless i == local_names_array.size
-            names_output_array.push("#{e} #{local_names_array.values_at(i+1)}")
-          end
-      end
   
-    }
-    local_names_array.delete(local_names_array.first)
-    names = names_output_array
-  end
   
   def generate_name_combinations(names_array)
     name_combinations = Array.new
