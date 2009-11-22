@@ -3,7 +3,11 @@
 
 
 <% form_tag(names_path, {:method => 'get', :class => "form"}) do %>
-  <p><%= text_area_tag "namelist", params[:namelist], {:size => "30x10"} %></p>
+  <p><%= label_tag :nameslist, "Your List of Names" %></p>
+  <p><%= text_area_tag "namelist", params[:namelist], {:size => "30x10"} %>
+  +
+  <%= label_tag :lastname, "Last Name" %>
+  <%= text_field_tag "lastname", params[:lastname] %></p>
   <p><%= submit_tag "Submit", :disable_with => 'Submiting...' %> or <%= link_to "reset", names_path  %></p>
   
 <% end -%>
@@ -11,9 +15,9 @@
 <div id="output">
   <% if !@names.empty? %>
     <% for name in @names %>
-      <%= name %><br />
+      <%= h name %> <%= h params[:lastname] %><br />
     <% end %>
   <% else %>
     <%= render :text => "No Results" %>
-  <% end %>  
+  <% end %>
 </div>
