@@ -1,4 +1,4 @@
-<% title "Names" %>
+<% title "Moniker" %>
 
 
 
@@ -8,10 +8,12 @@
   +
   <%= label_tag :lastname, "Last Name" %>
   <%= text_field_tag "lastname", params[:lastname] %></p>
-  <p><%= submit_tag "Submit", :disable_with => 'Submiting...' %> or <%= link_to "reset", names_path  %></p>
+  <p><%= submit_tag "Submit", :disable_with => 'Submiting...' %> or <%= link_to "reset", root_path  %></p>
   
 <% end -%>
 
+<h2>Results</h2>
+<h3>Name Combinations</h3>
 <div id="output">
   <% if !@names.empty? %>
     <% for name in @names %>
@@ -26,7 +28,7 @@
   <h3>Name Popularity in 2008 (Top 1000 Names)</h3>
   <% if !@results.empty? %>
     <% for result in @results %>
-      <%= h result.name %> {rank: <%= h result.rank %>}<br />
+      <%= h result.name %> (<%= generate_gender_symbol(h(result.gender)) %> #<%= h result.rank %>)<br />
     <% end %>
   <% else %>
     <%= render :text => "No Results" %>
