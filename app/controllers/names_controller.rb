@@ -10,7 +10,7 @@ class NamesController < ApplicationController
       @names = generate_name_combinations(@names)
 
     else
-      @names = "No Results"
+      @names = []
       @results = []
     end
   end
