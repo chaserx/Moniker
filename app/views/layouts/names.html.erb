@@ -3,11 +3,22 @@
 <html>
   <head>
     <title><%= h(yield(:title) || "Untitled") %></title>
-    <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag 'blueprint/screen', 'moniker' %>
+    <%= stylesheet_link_tag 'blueprint/print', :media => "print" %>
+    <!--[if lt IE 8]>
+       <link rel="stylesheet" href="/stylesheets/blueprint/ie.css" type="text/css" media="screen, projection">
+    <![endif]-->
     <%= yield(:head) %>
   </head>
   <body>
-    <div id="container">
+    <div id="container" class="container">
+      <div class="prepend-16 span-8 right last" id="nav">
+        navigation | navigation | navigation
+      </div>
+      <div class="span-24 last column">
+          <h1>Moniker: <span>a simple name explorer</span></h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
       <%- flash.each do |name, msg| -%>
         <%= content_tag :div, msg, :id => "flash_#{name}", :class => "#{name}" %>
       <%- end -%>

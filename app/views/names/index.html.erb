@@ -1,36 +1,32 @@
-<% title "Moniker" %>
+<% title "Moniker", false %>
+<div class="span-8" id="formcolumn">
+  <h3>Given Names</h3>
+  <% form_tag(names_path, {:method => 'get', :class => "form"}) do %>
+    <%= text_area_tag "namelist", params[:namelist], {:size => "30x10"} %>
+    <%= label_tag :lastname, "Family Name" %>
+    <%= text_field_tag "lastname", params[:lastname], :class => 'title' %>
+    <%= submit_tag "Continue &rarr;", :disable_with => 'Submiting...' %> or <%= link_to "reset", root_path  %>
 
-
-
-<% form_tag(names_path, {:method => 'get', :class => "form"}) do %>
-  <p><%= label_tag :nameslist, "Your List of Names" %></p>
-  <p><%= text_area_tag "namelist", params[:namelist], {:size => "30x10"} %>
-  +
-  <%= label_tag :lastname, "Last Name" %>
-  <%= text_field_tag "lastname", params[:lastname] %></p>
-  <p><%= submit_tag "Submit", :disable_with => 'Submiting...' %> or <%= link_to "reset", root_path  %></p>
-  
-<% end -%>
-
-<h2>Results</h2>
-<h3>Name Combinations</h3>
-<div id="output">
-  <% if !@names.empty? %>
-    <% for name in @names %>
-      <%= h name %> <%= h params[:lastname] %><br />
-    <% end %>
-  <% else %>
-    <%= render :text => "No Results" %>
-  <% end %>
+  <% end -%>
 </div>
-<hr />
-<div id="results">
-  <h3>Name Popularity in 2008 (Top 1000 Names)</h3>
-  <% if !@results.empty? %>
-    <% for result in @results %>
-      <%= h result.name %> (<%= generate_gender_symbol(h(result.gender)) %> #<%= h result.rank %>)<br />
+<div class="span-8" id="results">
+  <h3>Results</h3>
+    <% if !@names.empty? %>
+      <% for name in @names %>
+        <p class="prepend-1"><%= h name %> <%= h params[:lastname] %></p>
+      <% end %>
+    <% else %>
+      <%= render :text => "No Results" %>
     <% end %>
-  <% else %>
-    <%= render :text => "No Results" %>
-  <% end %>
 </div>
+<div class="span-8 last" id="rankings">
+  <h3>Rankings</h3>
+    <% if !@results.empty? %>
+      <% for result in @results %>
+        <p class="prepend-1"><%= h result.name %> ( #<%= h result.rank %>)</p>
+      <% end %>
+    <% else %>
+      <%= render :text => "No Results" %>
+    <% end %>
+</div>
+
