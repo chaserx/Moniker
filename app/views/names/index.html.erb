@@ -1,6 +1,6 @@
 <% title "Moniker", false %>
 <div class="span-8" id="formcolumn">
-  <h3>Given Names</h3>
+  <h3>Names</h3>
   <% form_tag(names_path, {:method => 'get', :class => "form"}) do %>
     <%= text_area_tag "namelist", params[:namelist], {:size => "30x10"} %>
     <%= label_tag :lastname, "Family Name" %>
