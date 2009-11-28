@@ -49,7 +49,7 @@ protected
 
 def authenticate
   authenticate_or_request_with_http_basic do |username, password|
-    username == "#{PASSWORDS_CONFIG[:username]}" && password == "#{PASSWORDS_CONFIG[:password]}"
+    username == "monikeradmin" && password == "mynameiswha"
   end
 end
 

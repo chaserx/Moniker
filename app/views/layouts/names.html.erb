@@ -3,6 +3,10 @@
 <html>
   <head>
     <title><%= h(yield(:title) || "Untitled") %></title>
+    <meta name="keywords" content="baby names, application, ruby, ruby on rails" />
+    <meta name="description" content="content" />
+    <meta name="author" content="Chase Southard" />
+    <meta name="license" content="MIT" />
     <%= stylesheet_link_tag 'blueprint/screen', 'moniker' %>
     <%= stylesheet_link_tag 'blueprint/print', :media => "print" %>
     <!--[if lt IE 8]>
@@ -33,7 +37,7 @@
       <%= yield %>
       <div class="clear"></div>
       <div class="span-24 last" id="footer">
-        <p>&copy; 2009 Chase Southard</p>
+        <p>Another marginally useful project by Chase Southard<br />Last updated: 11.28.2009</p>
         <p>Credits<br /><a href="http://www.ssa.gov/OACT/babynames/" title="Popular baby names">Social Security Administration</a><br /><a href="http://kyrug.org/">Kentucky Ruby User Group</a></p>
       </div>
     </div>
