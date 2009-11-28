@@ -1,4 +1,6 @@
 class MonikersController < ApplicationController
+  before_filter :authenticate
+
   def index
     @monikers = Moniker.find(:all, :conditions => { :rank => 1..10 }, :order => :rank)
   end
@@ -41,4 +43,14 @@ class MonikersController < ApplicationController
     flash[:notice] = "Successfully destroyed moniker."
     redirect_to monikers_url
   end
+
+
+protected
+
+def authenticate
+  authenticate_or_request_with_http_basic do |username, password|
+    username == "#{PASSWORDS_CONFIG[:username]}" && password == "#{PASSWORDS_CONFIG[:password]}"
+  end
+end
+
 end
