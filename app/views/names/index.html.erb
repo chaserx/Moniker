@@ -11,22 +11,26 @@
 </div>
 <div class="span-8" id="results">
   <h3>Results</h3>
+  <div class="prepend-1">
     <% if !@names.empty? %>
       <% for name in @names %>
-        <p class="prepend-1"><%= h name %> <%= h params[:lastname] %></p>
+        <p><%= h name %> <%= h params[:lastname] %></p>
       <% end %>
     <% else %>
       <%= render :partial => "results" %>
     <% end %>
+  </div>
 </div>
 <div class="span-8 last" id="rankings">
   <h3>Rankings</h3>
+  <div class="prepend-1">
     <% if !@results.empty? %>
       <% for result in @results %>
-        <p class="prepend-1"><%= h result.name %> ( #<%= h result.rank %>)</p>
+        <p><%= h result.name %> #<span class="<%= h result.gender %>"><%= h result.rank %></span></p>
       <% end %>
     <% else %>
       <%= render :partial => "rankings" %>
     <% end %>
+  </div>
 </div>
 
