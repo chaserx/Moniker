@@ -8,4 +8,4 @@
 
 require 'active_record/fixtures'
 
-Fixtures.create_fixtures("#{Rails.root}/test/fixtures", "monikers2009")
+Fixtures.create_fixtures("#{Rails.root}/test/fixtures", "monikers")
